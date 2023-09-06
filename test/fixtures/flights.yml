@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2023-09-06
+  time: 2023-09-06 16:11:40
+  duration: MyString
+
+two:
+  date: 2023-09-06
+  time: 2023-09-06 16:11:40
+  duration: MyString

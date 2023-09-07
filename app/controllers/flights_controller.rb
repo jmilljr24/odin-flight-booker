@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
   def index
-    # @flights = Flight.all
-
+    # @flights = Flight.where('DATE(departure) >= ?', Date.today)
+    @dates = Flight.unique_departure_times
     @airport_options = Airport.all.map { |a| [a.city, a.id] }
 
     @departing_airport = params['depart']

@@ -1,0 +1,9 @@
+<%= form_with(url: "/flights", method: "get") do %>
+<%= select_tag(:depart, options_for_select(@airport_options))%>
+<%= select_tag(:arrive, options_for_select(@airport_options))%>
+<%= select_tag(:date, options_for_select(@dates)) %>
+<%= select_tag(:num_passengers, options_for_select(1..4)) %>
+<%= submit_tag('Search') %>
+<% end%>
+
+

@@ -5,7 +5,7 @@
 <%= form_with(url: root_path, method: "get") do %>
 <%= select_tag(:depart, options_for_select(@airport_options))%>
 <%= select_tag(:arrive, options_for_select(@airport_options))%>
-
+<%= select_tag(:date, options_for_select(@dates)) %>
 <%= submit_tag('Search') %>
 <% end%>
 
@@ -24,4 +24,14 @@
 <%# <% comment end %> %>
 
 
+<% @test1 = Flight.limit(40) %>
+<ul>
+    <% @test1.each do |flight| %>
+        <li>
+        <%= flight.departure_airport.city %>
+        <%= flight.arrival_airport.city  %>
+        <%= flight.departure %>
+    </li>
+    <% end %>
 
+</ul> 

@@ -1,26 +1,19 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
-
-<% comment do %>
-<%= form_with(url: root_path, method: "get") do %>
+<%= form_with(url: "/flights", method: "get") do %>
 <%= select_tag(:depart, options_for_select(@airport_options))%>
 <%= select_tag(:arrive, options_for_select(@airport_options))%>
 <%= select_tag(:date, options_for_select(@dates)) %>
+<%= select_tag(:num_passengers, options_for_select(1..4)) %>
 <%= submit_tag('Search') %>
 <% end%>
-<% comment end %>
 
-<%= render "results" %>
-
-<% comment do %>
 <ul>
     <% @flights.each do |flight| %>
         <li>
         <%= flight.departure_airport.city %>
         <%= flight.arrival_airport.city  %>
         <%= flight.departure %>
+        
     </li>
     <% end %>
 
 </ul>  
-<% comment end %>

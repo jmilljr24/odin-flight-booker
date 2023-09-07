@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'airports/index'
+  # get 'airports/index'
+
+  resources :flights
+
   root 'flights#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

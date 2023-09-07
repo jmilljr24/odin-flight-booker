@@ -1,14 +1,16 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
 
-<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>   
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
- 
+
+<%= form_with(url: root_path, method: "get") do %>
+<%= select_tag(:depart, options_for_select(@airport_options))%>
+<%= select_tag(:arrive, options_for_select(@airport_options))%>
+
+<%= submit_tag('Search') %>
+<% end%>
 
 
-<% comment do %>
+<%# <% comment do %> %>
 <ul>
     <% @flights.each do |flight| %>
         <li>
@@ -19,6 +21,7 @@
     <% end %>
 
 </ul>  
-<% comment end %>
+<%# <% comment end %> %>
+
 
 

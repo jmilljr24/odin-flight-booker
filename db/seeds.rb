@@ -5,36 +5,26 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Airport.destroy_all
-Flight.destroy_all
-airport_list = ['NRT', 'Tokyo'],
-               ['PKX', 'Beijing'],
-               ['JFK', 'New York'],
-               ['LAX', 'Los Angeles'],
-               ['YYZ', 'Toronto'],
-               ['LHR', 'London'],
-               ['CDG', 'Paris'],
-               ['SYD', 'Sydney'],
-               ['ICN', 'Seoul']
+# Airport.destroy_all
 
-airport_list.each do |code, city|
-  Airport.create(code:, city:)
-end
+# airport_list = ['NRT', 'Tokyo'],
+#                ['PKX', 'Beijing'],
+#                ['JFK', 'New York'],
+#                ['LAX', 'Los Angeles'],
+#                ['YYZ', 'Toronto'],
+#                ['LHR', 'London'],
+#                ['CDG', 'Paris'],
+#                ['SYD', 'Sydney'],
+#                ['ICN', 'Seoul']
+
+# airport_list.each do |code, city|
+#   Airport.create(code:, city:)
+# end
 
 # Flight Model
-
+Flight.destroy_all
 dates = (Date.today..(Date.today + 1.week)).to_a
 airports = Airport.all
-
-# first = Airport.first
-# last = Airport.last
-# length = rand(90..300)
-# Flight.create(
-#   departure: DateTime.now,
-#   duration: length,
-#   departure_airport_id: first,
-#   arrival_airport_id: last
-# )
 
 airports.each do |depart|
   airports.each do |arrive|

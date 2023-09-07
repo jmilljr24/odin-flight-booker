@@ -1,12 +1,15 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.all
+    # @flights = Flight.all
 
-    @search = params['search']
-    return unless @search.present?
+    @airport_options = Airport.all.map { |a| [a.city, a.id] }
 
-    @name = @search['name']
-    @airport = Airport.find_by(city: @name)
-    @flights = @airport.departing_flights
+    @departing_airport = params['depart']
+    @arriving_airport = params['arrive']
+
+    @flights = Flight.where(
+      departure_airport_id: @departing_airport,
+      arrival_airport_id: @arriving_airport
+    )
   end
 end

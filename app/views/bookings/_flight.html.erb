@@ -1,0 +1,4 @@
+<h2>Origin: <%= "#{@flight.departure_airport.city}" %></h2>
+<h2>Destination: <%= "#{@flight.arrival_airport.city}" %></h2>
+<h3>Depature: <%= "#{@flight.departure.strftime('%H:%M UTC on %B %d, %Y ')}" %></h3>
+<h3>Flight Time: <%= "#{time_conversion(@flight.duration)}" %></h3>

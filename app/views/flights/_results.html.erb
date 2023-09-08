@@ -1,17 +1,17 @@
-<% if @flights.any? %>
 
+<%= form_with(model: @flight, url: new_booking_path, method: "get") do |f| %>
+    <%= f.hidden_field :num_passengers, value: params[:num_passengers] %>
 <ul>
     <% @flights.each do |flight| %>
         <li>
         <%= flight.departure_airport.city %>
         <%= flight.arrival_airport.city  %>
         <%= flight.departure %>
-    </li>
+        <%= f.radio_button :flight_id, flight.id %>
+        </li>
     <% end %>
-
 </ul>  
+<%= f.submit "Book Flight" %>
+<% end %>
 
-<% else %>
 
-<h3>No flights available for your selections</h3>
-<% end%>

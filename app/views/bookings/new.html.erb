@@ -6,5 +6,16 @@
 <h3>Depature: <%= "#{@flight.departure.strftime('%H:%M UTC on %B %d, %Y ')}" %></h3>
 <h3>Flight Time: <%= "#{time_conversion(@flight.duration)}" %></h3>
 
+    <%= f.hidden_field :flight_id, value: @flight.id %>
 
+<% @num_passengers.to_i.times do %>
+<%= f.fields_for :passengers do |sub_form|  %>
+    <%= sub_form.label :name %>
+    <%= sub_form.text_field :name%>
+    <%= sub_form.label :email %>
+    <%= sub_form.email_field :email %>
+    
+    <% end%>
+<% end%>
+<%= f.submit "Submit Booking"%>
 <% end%>

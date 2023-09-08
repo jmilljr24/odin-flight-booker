@@ -18,8 +18,7 @@ class BookingsController < ApplicationController
   end
 
   def show # fix
-    @flight = @booking.flight
-    @passengers = @booking.passengers
+    @booking = Booking.find(params[:id])
   end
 
   private

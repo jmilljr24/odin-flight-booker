@@ -1,0 +1,6 @@
+<h2>Origin: <%= "#{@booking.flight.departure_airport.city}" %></h2>
+<h2>Destination: <%= "#{@booking.flight.arrival_airport.city}" %></h2>
+<h3>Depature: <%= "#{@booking.flight.departure.strftime('%H:%M UTC on %B %d, %Y ')}" %></h3>
+<h3>Flight Time: <%= "#{time_conversion(@booking.flight.duration)}" %></h3>
+
+<h4>Booking was successful</h4>

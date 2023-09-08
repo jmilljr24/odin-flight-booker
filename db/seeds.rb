@@ -20,10 +20,11 @@
 # airport_list.each do |code, city|
 #   Airport.create(code:, city:)
 # end
-
+Passenger.destroy_all
+Booking.destroy_all
 # Flight Model
 Flight.destroy_all
-dates = (Date.today..(Date.today + 1.week)).to_a
+dates = (Date.today..(Date.today + 1.month)).to_a
 airports = Airport.all
 
 airports.each do |depart|
@@ -32,7 +33,7 @@ airports.each do |depart|
 
     length = rand(90..300)
     dates.each do |d|
-      rand(1..3).times do
+      rand(1..10).times do
         Flight.create(
           departure: DateTime.new(d.year, d.month, d.day, rand(6..23), rand(0..59)),
           duration: length,
